@@ -1,9 +1,12 @@
 <h1>All Products</h1>
 
-<ul>
-  <% @products.each do |product| %>
-    <li>
-      <%= link_to product.title, product_path(product) %> - $<%= product.price %> (Stock: <%= product.stock_quantity %>)
-    </li>
-  <% end %>
-</ul>
+<!-- app/views/products/index.html.erb -->
+<% @products.each do |product| %>
+  <div>
+    <h2><%= product.title %></h2>
+    <p><%= product.description %></p>
+    <p>Price: <%= number_to_currency(product.price) %></p>
+    <p>Stock Quantity: <%= product.stock_quantity %></p>
+    <p>Category: <%= product.category.name %></p> <!-- Display category name -->
+  </div>
+<% end %>
